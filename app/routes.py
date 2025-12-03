@@ -214,6 +214,7 @@ def user_registration():
     if request.method == "POST":
         new_username = request.form.get("username")
         new_password = request.form.get("password")
+        access_level = request.form.get("access_level")
         # save password as hashed value
         hashed_pw = bcrypt.hashpw(new_password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
         # create TOTP secret for new user
@@ -222,8 +223,8 @@ def user_registration():
         try:
             # create user in DB
             cursor.execute(
-                "INSERT INTO users (username, password_hash, totp_secret) VALUES (%s, %s, %s)",
-                (new_username, hashed_pw, totp_secret)
+                "INSERT INTO users (username, password_hash, totp_secret, access_level) VALUES (%s, %s, %s, %s)",
+                (new_username, hashed_pw, totp_secret, access_level)
             )
             conn.commit()
             # generate QR code for TOTP
