@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Passman Dashboard</title>
+</head>
+
+<body>
+    <h1>Welcome, {{ username }}</h1>
+    <p>This is your Passman dashboard.</p>
+
+    <form method="GET" action="/user_registration">
+        <button type="submit">Register New User</button>
+    </form>
+    {% if access_level > 1 %}
+    <form action="/create_password" method="get">
+        <button type="submit">Create New Password</button>
+    </form>
+    {% endif %}
+    <form method="POST" action="/logout">
+        <button type="submit">Logout</button>
+    </form>
+    
+    <hr>
+    
+    <h2>Your Accessible Passwords</h2> 
+    <table>
+        <tr>
+            <th>PasswordID</th>
+            <th>CatagoryID</th>
+            <th>Service Name</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Access Level</th>
+            <th>Notes</th>
+            <th>Created at...</th>
+            <th>Updated at...</th>
+            <th>Actions</th>
+        </tr>
+        {% for p in passwords %}
+        <tr>
+            <td>{{ p.password_id }}</td>
+            <td>{{ p.category_id }}</td>
+            <td>{{ p.service_name }}</td>
+            <td>{{ p.login_username }}</td>
+            <td>{{ p.password_encrypted }}</td>
+            <td>{{ p.min_access_level }}</td>
+            <td>{{ p.notes }}</td>
+            <td>{{ p.created_at }}</td>
+            <td>{{ p.updated_at }}</td>
+            <td>
+                {% if access_level >= 3 %}
+                <form action="/update_password/" method="get" class="inline-form" style="display:inline;">
+                    <input type="hidden" name="password_id" value="{{ p.password_id }}">
+                    <button type="submit">Edit</button>
+                </form>
+                {% endif %} 
+                {% if access_level >= 4 %}
+                <form action="/delete_password/" method="get" class="inline-form" style="display:inline;">
+                    <input type="hidden" name="password_id" value="{{ p.password_id }}">
+                    <button type="submit">Delete</button>
+                </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% if not passwords %}
+    <p>No passwords available.</p>
+    {% endif %} 
+</body>
+
+</html>

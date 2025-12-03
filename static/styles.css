@@ -1,0 +1,131 @@
+/* Global layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+form {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 280px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+/* Labels and Inputs */
+label {
+    font-size: 0.9rem;
+    color: #444;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #3a74b8;
+}
+
+/* Dashboard Table Styling */
+table {
+    width: 100%;
+    margin: 1.5rem auto;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+th {
+    white-space: nowrap;
+    background: #4a90e2;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: #f5f7fb;
+}
+
+tr:hover {
+    background: #e7eefc;
+}
+
+/* Buttons inside table rows */
+table button {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #4a90e2;
+    color: white;
+}
+
+table button:hover {
+    background: #346db6;
+}
+
+/* Removes background, padding, border, etc. from dashboard button forms */
+.inline-form {
+    background: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block; /* ensures spacing stays nice */
+    box-shadow: none;
+}
+
+.container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 280px;
+}

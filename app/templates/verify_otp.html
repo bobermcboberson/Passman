@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Passman OTP Verification</title>
+</head>
+
+<body>
+    <form method="POST" action="/verify_otp" style="width: 400px;">
+        <h1>Two-Factor Authentication</h1>
+        <p>Enter the 6-digit code from your authenticator app.</p>
+        <label>OTP Code:</label>
+        <br>
+        <input type="text" name="otp" pattern="\d{6}" required>
+        <br>
+        <br>
+        <button type="submit">Verify</button>
+    </form>
+</body>
+
+</html>

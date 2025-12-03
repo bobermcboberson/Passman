@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Confirm Delete</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete password entry for <strong>{{ account_name }}</strong>?</p>
+            <div>
+                <form action="/delete_password/" method="post" class="inline-form" style="display:inline;">
+                    <input type="hidden" name="password_id" value="{{ password_id }}">
+                    <button type="submit">Yes, Delete</button>
+                </form>
+                <br>
+                <br>
+                <form action="/dashboard" method="get" class="inline-form" style="display:inline;">
+                    <button type="submit">No, Cancel</button>
+                </form>
+            </div>
+    </div>
+</body>
+
+</html>

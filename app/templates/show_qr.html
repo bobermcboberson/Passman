@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Register New User</title>
+</head>
+
+<body>
+    <form method="GET" action="/dashboard" style="width: 450px;">
+        <h1>User {{ username }} Created</h1>
+        <p>Scan this QR code in your authenticator app:</p>
+        <img src="data:image/png;base64,{{ qr_code }}">
+        <p>Or manually enter this secret: {{ secret }}</p>
+        <button type="submit">Access Login Page</button>
+    </form>
+</body>
+
+</html>

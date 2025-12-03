@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Error {{ error_code }}</title>
+</head>
+
+<body>
+    <form method="GET" action="/static/login.html">
+        <h1>Error {{ error_code }}</h1>
+        <p>{{ error_message }}</p>
+        <button type="submit">Return Login Page</button>
+    </form>
+</body>
+
+</html>
